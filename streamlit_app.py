@@ -13,9 +13,10 @@ df = None
 
 # ファイル選択
 with st.sidebar:
-    uploaded_files = st.file_uploader("Choose a CSV file")
+    uploaded_files = st.file_uploader("Choose an Excel file", type="xlsx")
     if uploaded_files is not None:
-        df = pd.read_csv(uploaded_files)
+        df = pd.read_excel(uploaded_files)
 
 # pygwalkerで表示
 pyg.walk(df, env='Streamlit')
+
