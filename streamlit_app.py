@@ -17,6 +17,9 @@ with st.sidebar:
     if uploaded_files is not None:
         df = pd.read_excel(uploaded_files)
 
-# pygwalkerで表示
-pyg.walk(df, env='Streamlit')
-
+# Verificar si los datos se han cargado correctamente
+if df is not None:
+    # pygwalkerで表示
+    pyg.walk(df, env='Streamlit')
+else:
+    st.warning("Por favor, carga un archivo Excel para continuar.")
